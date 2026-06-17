@@ -1,4 +1,4 @@
-import { Category } from 'src/modules/categories/entities/category.entity';
+import { Category } from '../../categories/entities/category.entity';
 import {
   Column,
   CreateDateColumn,
@@ -53,8 +53,8 @@ export class Product {
   //Relaciones
   @ManyToOne(() => Category, (category) => category.products, {
     nullable: false,
-    cascade: true,
+    onDelete: 'CASCADE',
   })
-  @JoinColumn({ name: 'category_id' })
+  @JoinColumn({ name: 'categoryId' })
   category!: Category;
 }
