@@ -7,6 +7,8 @@ import { configuration } from './config/configuration';
 import { APP_GUARD } from '@nestjs/core';
 import { ProductsModule } from './modules/products/products.module';
 import { CategoriesModule } from './modules/categories/categories.module';
+import { UsersModule } from './modules/users/users.module';
+import { AuthModule } from './modules/auth/auth.module';
 
 @Module({
   imports: [
@@ -33,6 +35,8 @@ import { CategoriesModule } from './modules/categories/categories.module';
     ]),
     ProductsModule,
     CategoriesModule,
+    UsersModule,
+    AuthModule,
   ],
   providers: [
     {

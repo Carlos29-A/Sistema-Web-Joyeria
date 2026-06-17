@@ -20,10 +20,10 @@ export class Category {
   slug!: string;
 
   @Column('text', { nullable: true })
-  description!: string;
+  description!: string | null;
 
   @Column({ nullable: true })
-  image!: string;
+  image!: string | null;
 
   //Relaciones
   @OneToMany(() => Product, (product) => product.category)

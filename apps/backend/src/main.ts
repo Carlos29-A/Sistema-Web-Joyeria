@@ -32,4 +32,7 @@ async function bootstrap() {
   await app.listen(port);
   Logger.log(`Application is running on port ${port}`);
 }
-bootstrap();
+bootstrap().catch((err) => {
+  Logger.error('Failed to start application', err);
+  process.exit(1);
+});
