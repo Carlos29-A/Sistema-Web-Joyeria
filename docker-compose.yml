@@ -1,0 +1,26 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: joyeria_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: joyeria
+      POSTGRES_PASSWORD: joyeria_secreto
+      POSTGRES_DB: joyeria_dev
+    ports:
+      - "5438:5432"
+    volumes:
+      - joyeria_pgdata:/var/lib/postgresql/data
+
+  redis:
+    image: redis:7-alpine
+    container_name: joyeria_redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    volumes:
+      - joyeria_redisdata:/data
+
+volumes:
+  joyeria_pgdata:
+  joyeria_redisdata:
